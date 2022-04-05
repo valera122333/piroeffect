@@ -1,0 +1,254 @@
+.katalog__text2 {
+  font-size: 150%;
+}
+
+
+.number {
+  float: left;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+.divid {
+  width: 100%;
+}
+
+.mail_align {
+  margin: 0 auto;
+
+  float: right;
+  width: 50%;
+  text-align: center;
+
+  font-size: 18px;
+  font-family: sans-serif;
+
+
+
+}
+
+.katalog_t2 {
+  margin: 0 auto;
+  display: flex;
+
+  font-size: 18px;
+  font-family: sans-serif;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.container5 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 500px));
+  grid-gap: 50px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.item3 {
+  width: 100%;
+  max-width: 100%;
+
+
+  font-size: 28px;
+  transform: scale(0.6);
+
+
+}
+
+.katalog_t {
+  margin: 0 auto;
+  display: flex;
+  font-family: Bemount;
+  font-size: 28px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.katalog__text {
+  font-family: Bemount;
+  font-size: 18px;
+
+  font-style: normal;
+}
+
+.item2 {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 9px;
+  width: 250px;
+  height: 300px;
+
+
+
+}
+
+.container4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+  grid-column-gap: 50px;
+  width: 100%;
+  align-items: center;
+
+  margin-top: 100px;
+
+
+  justify-content: center;
+
+
+
+
+}
+
+#button:hover {
+  background-color: #FB2D2D;
+  color: #212121;
+}
+
+
+
+#button {
+  width: 308px;
+  height: 58px;
+  background: #204FBB;
+  border-radius: 8px;
+  margin-top: 26px;
+  color: #FFFFFF;
+
+  font-family: Bemount;
+  font-size: 28px;
+
+  font-style: normal;
+
+  text-align: center;
+
+}
+
+
+.button__center {
+
+
+
+  margin: 0 auto;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 100px;
+
+
+
+
+
+}
+
+.wrap__center {
+
+  margin: 0 auto;
+  display: flex;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+}
+
+.img_center {
+
+  padding-top: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+
+}
+
+.img_fon {
+  min-height: 100vh;
+  background: url(2.jpg) no-repeat center;
+  background-size: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Bemount;
+  src: url(шрифт/Bemount.ttf);
+}
+
+body {
+  margin: 0;
+  font-family: Bemount;
+  font-size: 28px;
+
+
+
+}
+
+header {
+  overflow: hidden;
+  background-color: #0471B6;
+  padding: 20px 10px;
+
+}
+
+header a {
+  float: left;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+
+  line-height: 25px;
+  border-radius: 4px;
+
+}
+
+#tel {
+
+  font: 1em sans-serif;
+  text-align: left;
+  margin-left: -140px;
+  font-size: 18px;
+  color: #FFFFFF;
+
+}
+
+header a.logo {
+
+  font-weight: bold;
+}
+
+header a:hover {
+  background-color: #FB2D2D;
+  color: #212121;
+}
+
+header a.active {
+  background-color: #BC290C;
+
+}
+
+nav {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  nav {
+    float: none;
+  }
+}

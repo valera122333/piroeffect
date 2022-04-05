@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block content %}
+{%load static %}
+        <h3 class="textd-center">Авторизация</h3>
+        <hr>
+   
+        
+        <form method="post" class="form-registration">
+            {% csrf_token %}
+            <div class="form-error">{{ form.non_field_errors }}</div>
+        
+            {% for f in form %}
+            <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button class="form-button" type="submit">Входим</button>
+            <h4 >нет аккаунта? </h4>
+            <a  href="{% url 'register' %}">Зарегистрироваться сейчас</a>
+        </form>
+
+
+
+{%endblock%}

@@ -1,0 +1,29 @@
+{%load static %}
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+ <header>
+<img src="{% static 'images/1.png' %}" alt="" class="logo" width="323" height="91">
+<span id="tel">+7 4212 250893</span>
+ <nav>
+ 
+  <a class = "{%if header == 'home'%}active{%endif%}" href="/">Главная</a>
+  <a class = "{%if header == 'katalog'%}active{%endif%}" href="{% url 'katalog' %}">Каталог</a>
+  <a class = "{%if header == 'contact'%}active{%endif%}" href="{% url 'contact' %}">Магазины и контакты</a>
+   <a class = "{%if header == 'dostavka'%}active{%endif%}" href="{% url 'dostavka' %}">Доставка</a>
+  {% if not request.user.is_authenticated %}
+  <a class = "{%if header == 'register'%}active{%endif%}" href="{% url 'register' %}">Регистрация</a>
+  <a class = "{%if header == 'login'%}active{%endif%}" href="{% url 'login' %}">Авторизация</a>
+ 
+ 
+    
+
+    {% else %}
+    <a class = "{%if header == 'logout'%}active{%endif%}" href="{% url 'logout' %}">Выйти</a>
+   <a>Привет {{request.user.username}}</a> 
+    {% endif %}
+ </nav>
+ 
+</header>
+ 
+ <style>
+ 
+ </style>
