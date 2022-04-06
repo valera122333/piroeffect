@@ -19,3 +19,12 @@ class LoginUserForm(AuthenticationForm):
         label='Логин', widget=forms.TextInput(attrs={'class': 'input_class_form'}))
     password = forms.CharField(
         label='Пароль', widget=forms.PasswordInput(attrs={'class': 'input_class_form'}))
+
+
+class AddOrderForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Orders
+        fields = ['name', 'email', 'phone', 'text']

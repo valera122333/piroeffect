@@ -1,7 +1,8 @@
+from django import views
 from django.shortcuts import get_object_or_404, redirect, render
-
+from .forms import AddOrderForm
 from .forms import *
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Dostavka
 from django.contrib.auth import login, logout
 from django.urls.base import reverse_lazy
@@ -11,8 +12,62 @@ from django.contrib.auth.views import LoginView
 from .forms import LoginUserForm
 
 
-def home(request):
-    return render(request, 'home.html', {'header': 'home'})
+class ProductsView(views.View):
+    def get(self, request, **kwargs):
+        products = CategoryProducts.objects.all()
+        context = {
+            'products': products,
+        }
+
+        return render(request, 'home.html', context)
+
+
+class ProductsViewCatalog(views.View):
+    def get(self, request, **kwargs):
+        products = CategoryProducts.objects.all()
+        context = {
+            'products': products,
+        }
+
+        return render(request, 'catalog.html', context)
+
+
+class ProductDetailViewCatalog(views.generic.DetailView, LoginRequiredMixin, CreateView):
+
+    model = CategoryProducts
+    template_name = 'catalog_detail.html'
+    slug_url_kwarg = 'product_slug'
+    context_object_name = 'product'
+
+    form_class = AddOrderForm
+    template_name = 'catalog_detail.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return dict(list(context.items()) + list())
+
+    def get_success_url(self):
+        return reverse_lazy('home')
+
+
+class ProductDetailView(views.generic.DetailView, LoginRequiredMixin, CreateView):
+
+    model = CategoryProducts
+    template_name = 'product_detail.html'
+    slug_url_kwarg = 'product_slug'
+    context_object_name = 'product'
+
+    form_class = AddOrderForm
+    template_name = 'product_detail.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return dict(list(context.items()) + list())
+
+    def get_success_url(self):
+        return reverse_lazy('home')
 
 
 def katalog(request):
@@ -27,23 +82,6 @@ def dostavka(request):
     dostavka = Dostavka.objects.all()
     return render(request, 'dostavka.html', {'dostavka': dostavka, 'header': 'dostavka'})
 
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-
-#             return redirect('login')
-#     else:
-#         form = UserRegistrationForm()
-#     context = {
-#         'form': form
-#     }
-#     return render(request, 'register.html', context)
-
-
-# Create your views here.
 
 class RegisterUser(CreateView):
 

@@ -7,19 +7,21 @@
  
  
    
-      
-        
-        <form method="post" class="form-registration">
+ 
+<div class="form">
+     
+        <form method="post" id='contact' class="form-registration">
+            <p class="katalog_t">Регистрация нового пользователя</p>
             {% csrf_token %}
             {% for f in form %}
             <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
             <div class="form-error">{{ f.errors }}</div>
             {% endfor %}
-            <button class="form-button" type="submit">Регаемся</button>
+            <button id="contact-submit" type="submit">Регаемся</button>
             <h4 class="text-muted">Уже зарегистрированы? </h4>
             <a class="btn btn-primary" href="{% url 'login' %}">Войти</a>
         </form>
-
+    </div>
 
 
 {%endblock%}

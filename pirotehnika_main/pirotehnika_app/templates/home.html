@@ -10,66 +10,35 @@
 </div>
     </div> 
 <div class="button__center">
- <button id="button">Каталог</button> 
+<a href="{% url 'catalog' %}" id="button"><p id='text_btn'>Каталог</p></a> 
 </div>
       </div>
    </div>
+   
 <p class="katalog_t">Каталог</p>
+ 
 <div class="container4">
-
+      {% for product in products %}
  
- 
-
+     
+      
         <div class="item2">
+            <p class="katalog__text">   {{ product.name }}</p>
+         <img src="{{ product.image.url }}" alt="">
+         
+        <p class="katalog__text2"> <a  href="{{ product.get_absolute_url }}">
+            {{ product.name }}
+        </a ></p>
+        {% comment %} <p class="katalog__text">{{ product.description|striptags|truncatechars:200 }}</p>  {% endcomment %}
       
-         <img src="11.png" alt="">
-         <p class="katalog__text"> ТОВАРЫ ДЛЯ ПРАЗДНИКА</p>
-  
-        </div>
-    
-      <div class="item2">
-    
-        <img src="22.png" alt="">
-     <p class="katalog__text">ФОНТАНЫ</p>
-        </div>
-      <div class="item2">
+        </div>  
+        {% endfor %}  
+      </div>      
+     
       
-      <img src="33.png" alt="">
-  <p class="katalog__text">ПРОЧЕЕ</p>
-        </div>
-     <div class="item2">
-      
-          <img src="44.png" alt="">
-  <p class="katalog__text">РАКЕТЫ</p>
-        </div>
-     <div class="item2">
-      
-         <img src="55.png" alt="">
-  <p class="katalog__text">БАТАРЕИ САЛЮТОВ</p>
-        </div>
-      <div class="item2">
-      
-        <img src="66.png" alt="">
-  <p class="katalog__text">ФЕСТИВАЛЬНЫЕ ШАРЫ</p>
-        </div>
-     <div class="item2">
-      
-         <img src="77.png" alt="">
-  <p class="katalog__text">РИМСКИЕ СВЕЧИ</p>
-        </div>
-       <div class="item2">
-      
-          <img src="88.png" alt="">
-  <p class="katalog__text">ПЕТАРДЫ</p>
-        </div>
-       <div class="item2">
-      
-          <img src="99.png" alt="">
-  <p class="katalog__text">БЕНГАЛЬСКИЕ СВЕЧИ</p>
-        </div>
 
-      </div>
-
+      
+       
 </main>
    
 {%endblock%}

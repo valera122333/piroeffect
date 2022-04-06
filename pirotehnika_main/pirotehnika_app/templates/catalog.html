@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% block content %}
+{%load static %}
+<p class="katalog_t">Каталог</p>
+ <main>
+<div class="container44">
+      {% for product in products %}
+ 
+     
+      
+        <div class="item22">
+            <p class="katalog__text">   {{ product.name }}</p>
+         <img src="{{ product.image.url }}" alt="">
+         
+        <p class="katalog__text2"> <a  href="{{ product.get_absolute_url }}">
+            {{ product.name }}
+        </a ></p>
+           
+      
+        </div>  
+        {% endfor %}  
+      </div>      
+     
+      
+
+      
+       
+</main>
+   
+ 
+
+{%endblock%}
